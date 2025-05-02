@@ -1,35 +1,43 @@
 package com.milesaway.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
+
+@Setter
+@Getter
 
 @Entity
 @Table(name = "trips")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String title;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private Double budget;
+
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    private String name;
-    private String startDate;
-    private String endDate;
-
-
-    @OneToMany(mappedBy = "trip")
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<Destination> destinations;
 
-    private double budget; //
-}
+    public Trip() {}
 
+    public Trip(String title, LocalDate startDate, LocalDate endDate, Double budget, User user, List<Destination> destinations) {
+        this.title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.budget = budget;
+        this.user = user;
+        this.destinations = destinations;
+    }
+}

@@ -1,15 +1,11 @@
 package com.milesaway.service;
 
-import com.milesaway.model.entity.Activity;
+import com.milesaway.model.dto.ActivityDTO;
 import java.util.List;
 
 public interface ActivityService {
-
-    Activity createActivity(Activity activity);
-
-    List<Activity> getAllActivities();
-
-    Activity getActivityById(Long id);
-
-    void deleteActivity(Long id);
+    ActivityDTO findById(Long id);
+    List<ActivityDTO> findAll();
+    ActivityDTO create(ActivityDTO dto);
+    void delete(Long id);
 }

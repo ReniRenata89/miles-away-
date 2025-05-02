@@ -1,30 +1,33 @@
 package com.milesaway.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
+@Setter
+@Getter
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "destination_type")
 @Table(name = "destinations")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Destination {
+public abstract class Destination {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     @ManyToOne
-    @JoinColumn(name = "trip_id", nullable = false)
+    @JoinColumn(name = "trip_id")
     private Trip trip;
 
-    private String city;
-    private String country;
+    protected Destination() {}
 
-    @OneToMany(mappedBy = "destination")
-    private List<Activity> activities;
+    public Destination(String name, Trip trip) {
+        this.name = name;
+        this.trip = trip;
+    }
+
 }

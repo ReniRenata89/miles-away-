@@ -1,18 +1,29 @@
 package com.milesaway.model.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import java.time.LocalDate;
+
+@Setter
+@Getter
+
 public class TripDTO {
-
     private Long id;
-    private String name;
-    private String startDate;
-    private String endDate;
+    private String title;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private Double budget;
     private Long userId;
+
+
+    public TripDTO(Long id, String title, LocalDate startDate,
+                   LocalDate endDate, Double budget, Long userId) {
+        this.id = id;
+        this.title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.budget = budget;
+        this.userId = userId;
+    }
 }

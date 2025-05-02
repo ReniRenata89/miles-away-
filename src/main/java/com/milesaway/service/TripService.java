@@ -1,16 +1,12 @@
 package com.milesaway.service;
 
-import com.milesaway.model.entity.Trip;
-
+import com.milesaway.model.dto.TripDTO;
 import java.util.List;
 
 public interface TripService {
-
-    Trip createTrip(Trip trip);
-
-    List<Trip> getAllTrips();
-
-    Trip getTripById(Long id);
-
+    TripDTO findTripById(Long id);
+    List<TripDTO> findAllTrips();
+    TripDTO createTrip(TripDTO tripDTO);
+    TripDTO updateTrip(Long id, TripDTO tripDTO);
     void deleteTrip(Long id);
 }
