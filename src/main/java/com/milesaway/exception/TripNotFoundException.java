@@ -1,7 +1,11 @@
 package com.milesaway.exception;
 
-public class TripNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class TripNotFoundException extends ResponseStatusException {
+
     public TripNotFoundException(String message) {
-        super(message);
+        super(HttpStatus.NOT_FOUND, message);
     }
 }

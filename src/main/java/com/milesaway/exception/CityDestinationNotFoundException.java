@@ -1,7 +1,12 @@
 package com.milesaway.exception;
 
-public class CityDestinationNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class CityDestinationNotFoundException extends ResponseStatusException {
+
     public CityDestinationNotFoundException(String message) {
-        super(message);
+        super(HttpStatus.NOT_FOUND, message);
     }
 }
+

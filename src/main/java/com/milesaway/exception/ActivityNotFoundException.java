@@ -1,7 +1,12 @@
 package com.milesaway.exception;
 
-public class ActivityNotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class ActivityNotFoundException extends ResponseStatusException {
+
     public ActivityNotFoundException(String message) {
-        super(message);
+        super(HttpStatus.NOT_FOUND, message);
     }
 }
+
