@@ -6,7 +6,6 @@ import com.milesaway.model.entity.User;
 import com.milesaway.repository.UserRepository;
 import com.milesaway.service.UserService;
 import com.milesaway.util.UserConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

@@ -8,7 +8,6 @@ import com.milesaway.repository.ActivityRepository;
 import com.milesaway.repository.DestinationRepository;
 import com.milesaway.service.ActivityService;
 import com.milesaway.util.ActivityConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +18,6 @@ public class ActivityServiceImpl implements ActivityService {
     private final ActivityRepository activityRepository;
     private final DestinationRepository destinationRepository;
 
-    @Autowired
     public ActivityServiceImpl(ActivityRepository activityRepository, DestinationRepository destinationRepository) {
         this.activityRepository = activityRepository;
         this.destinationRepository = destinationRepository;

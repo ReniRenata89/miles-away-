@@ -8,7 +8,6 @@ import com.milesaway.repository.CityDestinationRepository;
 import com.milesaway.repository.TripRepository;
 import com.milesaway.service.CityDestinationService;
 import com.milesaway.util.CityDestinationConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +18,6 @@ public class CityDestinationServiceImpl implements CityDestinationService {
     private final CityDestinationRepository cityDestinationRepository;
     private final TripRepository tripRepository;
 
-    @Autowired
     public CityDestinationServiceImpl(CityDestinationRepository cityDestinationRepository, TripRepository tripRepository) {
         this.cityDestinationRepository = cityDestinationRepository;
         this.tripRepository = tripRepository;

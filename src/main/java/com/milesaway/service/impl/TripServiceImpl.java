@@ -7,7 +7,6 @@ import com.milesaway.repository.TripRepository;
 import com.milesaway.repository.UserRepository;
 import com.milesaway.service.TripService;
 import com.milesaway.util.TripConverter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.milesaway.exception.TripNotFoundException;
 
@@ -19,7 +18,6 @@ public class TripServiceImpl implements TripService {
     private final TripRepository tripRepository;
     private final UserRepository userRepository;
 
-    @Autowired
     public TripServiceImpl(TripRepository tripRepository, UserRepository userRepository) {
         this.tripRepository = tripRepository;
         this.userRepository = userRepository;
