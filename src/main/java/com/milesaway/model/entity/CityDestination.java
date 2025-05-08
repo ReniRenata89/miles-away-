@@ -18,5 +18,4 @@ public class CityDestination extends Destination {
         super(name, trip);
         this.cityInfo = cityInfo;
     }
-
 }

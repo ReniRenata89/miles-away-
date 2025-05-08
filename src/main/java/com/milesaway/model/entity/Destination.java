@@ -29,5 +29,4 @@ public abstract class Destination {
         this.name = name;
         this.trip = trip;
     }
-
 }
