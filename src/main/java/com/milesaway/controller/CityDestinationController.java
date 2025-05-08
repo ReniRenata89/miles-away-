@@ -23,12 +23,7 @@ public class CityDestinationController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CityDestinationDTO> getById(@PathVariable Long id) {
-        CityDestinationDTO dto = cityDestinationService.findById(id);
-        if (dto != null) {
-            return ResponseEntity.ok(dto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(cityDestinationService.findById(id));
     }
 
     @GetMapping

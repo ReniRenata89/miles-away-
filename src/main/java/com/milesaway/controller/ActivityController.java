@@ -23,12 +23,7 @@ public class ActivityController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ActivityDTO> getById(@PathVariable Long id) {
-        ActivityDTO dto = activityService.findById(id);
-        if (dto != null) {
-            return ResponseEntity.ok(dto);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(activityService.findById(id));
     }
 
     @GetMapping
