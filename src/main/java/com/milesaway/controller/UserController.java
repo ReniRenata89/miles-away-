@@ -16,24 +16,28 @@ public class UserController {
     private final UserService userService;
 
     public UserController(UserService userService) {
+
         this.userService = userService;
     }
 
     @Operation(summary = "Find a user by ID", description = "Find a user by their ID and return the found user")
     @GetMapping("{id}")
     public UserDTO findUser(@PathVariable long id) {
+
         return userService.findUserById(id);
     }
 
     @Operation(summary = "Get all users", description = "Retrieve all users in the database and return them in a list")
     @GetMapping
     public List<UserDTO> findAllUsers() {
+
         return userService.findAllUsers();
     }
 
     @Operation(summary = "Create a new user", description = "Create a new user with their name, email, and other details")
     @PostMapping
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
+
         return userService.createUser(userDTO);
     }
 
@@ -46,6 +50,7 @@ public class UserController {
     @Operation(summary = "Delete a user", description = "Delete a user by their ID. A 200 OK response is returned if the user was deleted successfully")
     @DeleteMapping("{id}")
     public void deleteUser(@PathVariable long id) {
+
         userService.deleteUser(id);
     }
 }

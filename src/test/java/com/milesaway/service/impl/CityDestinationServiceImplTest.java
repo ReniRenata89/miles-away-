@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CityDestinationServiceImplTest {
+class CityDestinationServiceImplTest {
 
     @Mock
     private CityDestinationRepository cityDestinationRepository;
@@ -31,7 +31,7 @@ public class CityDestinationServiceImplTest {
     }
 
     @Test
-    public void testFindById_success() {
+    void testFindById_success() {
         Trip trip = new Trip();
         trip.setId(1L);
 
@@ -49,14 +49,14 @@ public class CityDestinationServiceImplTest {
     }
 
     @Test
-    public void testFindById_notFound() {
+    void testFindById_notFound() {
         when(cityDestinationRepository.findById(2L)).thenReturn(Optional.empty());
 
         assertThrows(CityDestinationNotFoundException.class, () -> cityDestinationService.findById(2L));
     }
 
     @Test
-    public void testCreate_success() {
+    void testCreate_success() {
         CityDestinationDTO dto = new CityDestinationDTO(null, "Rome", "City trip", 1L);
 
         Trip trip = new Trip();
@@ -74,5 +74,27 @@ public class CityDestinationServiceImplTest {
 
         assertEquals("Rome", result.getName());
         assertEquals(1L, result.getTripId());
+    }
+
+    @Test
+    void testFindAll() {
+        when(cityDestinationRepository.findAll()).thenReturn(
+                java.util.List.of(new CityDestination(), new CityDestination()));
+
+        var results = cityDestinationService.findAll();
+
+        assertNotNull(results);
+        assertEquals(2, results.size());
+    }
+
+    @Test
+    void testDelete() {
+        Long idToDelete = 1L;
+
+        doNothing().when(cityDestinationRepository).deleteById(idToDelete);
+
+        cityDestinationService.delete(idToDelete);
+
+        verify(cityDestinationRepository, times(1)).deleteById(idToDelete);
     }
 }

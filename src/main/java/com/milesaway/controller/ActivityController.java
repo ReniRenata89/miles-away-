@@ -33,12 +33,7 @@ public class ActivityController {
 
     @PostMapping
     public ResponseEntity<ActivityDTO> create(@RequestBody ActivityDTO dto) {
-        ActivityDTO created = activityService.create(dto);
-        if (created != null) {
-            return ResponseEntity.ok(created);
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+        return ResponseEntity.ok(activityService.create(dto));
     }
 
     @DeleteMapping("/{id}")
