@@ -49,4 +49,3 @@ public class ActivityServiceImpl implements ActivityService {
         activityRepository.deleteById(id);
     }
 }
-

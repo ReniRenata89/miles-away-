@@ -10,3 +10,4 @@ public class CityDestinationNotFoundException extends ResponseStatusException {
     }
 }
 
+

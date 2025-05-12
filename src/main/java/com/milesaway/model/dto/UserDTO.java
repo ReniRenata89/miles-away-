@@ -18,4 +18,17 @@ public class UserDTO {
         this.name = name;
         this.email = email;
     }
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

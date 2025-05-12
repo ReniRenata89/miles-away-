@@ -33,7 +33,7 @@ public class CityDestinationController {
 
     @PostMapping
     public ResponseEntity<CityDestinationDTO> create(@RequestBody CityDestinationDTO dto) {
-            return ResponseEntity.ok(cityDestinationService.create(dto));
+        return ResponseEntity.ok(cityDestinationService.create(dto));
     }
 
     @DeleteMapping("/{id}")

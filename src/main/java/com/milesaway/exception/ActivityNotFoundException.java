@@ -9,4 +9,3 @@ public class ActivityNotFoundException extends ResponseStatusException {
         super(HttpStatus.NOT_FOUND, message);
     }
 }
-

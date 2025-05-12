@@ -14,7 +14,7 @@ public class CityDestinationConverter {
                 destination.getId(),
                 destination.getName(),
                 destination.getCityInfo(),
-                destination.getTrip().getId()
+                destination.getTrip() != null ? destination.getTrip().getId() : null
         );
     }
 

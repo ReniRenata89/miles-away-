@@ -4,6 +4,7 @@ import com.milesaway.model.dto.CityDestinationDTO;
 import java.util.List;
 
 public interface CityDestinationService {
+
     CityDestinationDTO findById(Long id);
 
     List<CityDestinationDTO> findAll();
